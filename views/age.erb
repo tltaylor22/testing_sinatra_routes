@@ -1,8 +1,8 @@
-Hello, <%=name%>! How old are you?
+<h1 class="center"> Nice to meet you <%=name%>.<p>How old are you?</h1>
 
-<form method="post" action="/age">
-<input type="number" name="age_input">
-<input type='submit' value= 'Submit'>
-<input type="text" name= "name" value = <%=name%> hidden>
+<form class="center" action="/age" method="post">
+	<input type="number" name="age_input">
+	<input type="text" name= "name_input" value= <%=name%> hidden>
+	<p><input type='submit' value='submit'><p>
 
 </form>

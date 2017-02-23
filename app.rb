@@ -19,40 +19,35 @@ class PersonalDetailsApp < Sinatra::Base
 	post '/age' do
 		name = params[:name_input]
 		age = params[:age_input]
-		# redirect '/favnums?age=' + age + '&name' + name
+		#{age}&{name}" - this will show you the values of age and name, must use double quote
+		redirect '/favnums?age=' + age + '&name=' + name
 	end
 
 	get '/favnums' do
 		name = params[:name]
 		age = params[:age]
-		"#{name} and #{age}"  # What the hell does this do???
+		erb :favnums, locals: {name: name, age: age}
+		#{name} and #{age}"  # shows the value of name and age
 	end
 
 	post '/favnums' do
 		name = params[:name_input]
-		age = params[:age_input],to_i
-		backend_num1 = params[:fav_num1_input].to_i
-		backend_num2 = params[:fav_num2_input].to_i
-		backend_num3 = params[:fav_num3_input].to_i
-		sum = (backend_num1 + backend_num2 + backend_num3)
+		age = params[:age_input].to_i
+		fav_num1 = params[:fav_num1_input].to_i
+		fav_num2 = params[:fav_num2_input].to_i
+		fav_num3 = params[:fav_num3_input].to_i
+		sum = (fav_num1 + fav_num2 + fav_num3)
 
 		results = 'less than'
-			if (sum > backend_age)
+			if (sum > age)
 				results = 'greater than'
-			elsif (sum == backend_age)
+			elsif (sum == age)
 				results = 'equal to'
 			else
 				results
 			end
-		redirect '/results?favnums=' + favnums + '&age' + age + '&name' + name
-	end
 
-	get '/results' do
-		name = params[:name]
-		age = params[:age]
-		favnums = params[:favnums]
-		"#{name} and #{age} and #{favnums}"	
+	erb :results, :locals => {name: name, age: age, fav_num1: fav_num1, fav_num2: fav_num2, fav_num3: fav_num3, :sum => sum, :results => results}		
 	end
-
 end
 

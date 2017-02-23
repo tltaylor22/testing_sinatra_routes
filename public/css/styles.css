@@ -1,0 +1,18 @@
+.headline {
+	color: 16085e; font-family: Arial Black;
+}
+.center {
+	text-align: center;
+}
+#center {
+	text-align: center;
+}
+.bgcolor {
+	background-color: e0d2d2;
+}
+.font {
+	font-size: 3rem;
+}
+
+/*.headline = a class
+#headline = a id*/

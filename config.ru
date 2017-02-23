@@ -1,2 +1,3 @@
 require './app.rb'
-PersonalDetailsApp.run!
+run PersonalDetailsApp
+# run PersonalDetailsApp - this version should run it under 9292
