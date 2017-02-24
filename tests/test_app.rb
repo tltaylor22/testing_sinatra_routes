@@ -13,7 +13,7 @@ class TestApp < Minitest::Test
 		get '/'
 		assert(last_response.ok?)
 		assert(last_response.body.include?('Hello, what is your name'))
-		assert(last_response.body.include?('<form action="/name" method="post">'))
+		assert(last_response.body.include?('<form class="center" action="/age" method="post">'))
 		assert(last_response.body.include?('<input type="text" name="name_input">'))
 		assert(last_response.body.include?("<input type='submit' value='submit'>"))
 	end
@@ -27,7 +27,8 @@ class TestApp < Minitest::Test
 
 	def test_get_age
 		get '/age?name=Tim'
-		assert(last_response.body.include?('Nice to meet you Tim. How old are you'))
+		assert(last_response.body.include?('Nice to meet you Tim.'))
+		assert(last_response.body.include?('How old are you?'))
 		assert(last_response.ok?)
 	end
 
